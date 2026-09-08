@@ -36,10 +36,10 @@ Variables can be true or false
 
 Basic operations:
 
-∧   
-∨   
-¬   
-→   
+∧   And
+∨   Or
+¬   Not
+→   Implies
 
 
 Basic logic gates (draw on board)
@@ -62,28 +62,28 @@ AND:
 
 p q  #  p ∧ q
 --------------
-T T  #    
-T F  #    
-F T  #     
-F F  #    
+T T  #    t
+T F  #    F
+F T  #    F
+F F  #    F
 
 
 OR:
 
 p q  #  p ∨ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    T
+F T  #    T 
+F F  #    F
 
 
 NOT:
 
 p  # ¬p
 --------
-T  # 
-F  # 
+T  # F
+F  # T
 
 ////////////////////////////////////////////////
 
@@ -94,7 +94,7 @@ IMPLIES operator →
     p: I have a test
     q: I will study
 
-    p → q
+    p → q 
 
 
 It is false if we have BROKEN A PROMISE.
@@ -102,16 +102,20 @@ Otherwise it is true.
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #      
-F T  #    
-F F  #     
+T T  #    T
+T F  #    F  
+F T  #    T 
+F F  #    T 
 
 /////////////////////////////////////////
 
 How does the implies operator relate to programming?
 
+Its an If statement 
+if (condition)
+{
 
+}
 
 //////////////////////////////////////////
 
@@ -122,6 +126,7 @@ Design circuits for:
 
 p XOR q (with just the gates we've seen, not a specific XOR gate)
 
+(p V q) ∧ ¬(p ∧ q)
 
 
 /////////////////////////////////////
@@ -153,18 +158,24 @@ Consider ¬p ∨ q ∧ r.
 
 --> what operation do we do first?
 
-
+the and because its the order of operations
 
 Order of operations
 
 In math?
-
-
-
+()
+Exponents
+Multiplication/division (left to right)
+Addition/subtraction (left to right)
 
 For logic statements:
 
 From highest (happens first) to lowest (happens last) precedence:
+()
+negation ¬
+AND ∧
+OR ∨
+Implies →
 
 
 ////////////////////////////////////////////////
@@ -174,7 +185,7 @@ From highest (happens first) to lowest (happens last) precedence:
 
 Given this statement:
 
-    ¬p ∨ q ∧ r
+    ((¬p) ∨ (q ∧ r))
 
 Add () to show the order of operations.
 
@@ -188,17 +199,19 @@ p is T
 q is F
 r is F
 
-
-
+((¬T) ∨ (F ∧ F))
+((F) ∨ (F))
+F
 ///////////////////////////////////////////
 
-Consider ¬p ∨ q → p ∧ ¬q
-
+Consider (((¬p) ∨ q) → (p ∧ (¬q)))
+        
 --> what operation do we do first?
 
-
-
-
+(((¬T) ∨ F) → (T ∧ (¬F)))
+(((F) ∨ F) → (T ∧ (¬T)))
+F → T
+T
 Add () to show the order of operations.
 
 
@@ -220,16 +233,16 @@ r is F
 
 Order of operations
     ¬ evaluates right to left
-        ¬¬p is equivalent to....
+        ¬¬p is equivalent to.... ¬(¬p)
 
 
     ∧ and ∨ evaluate left to right
-        p ∧ q ∧ r is equivalent to....
-        p ∨ q ∨ r is equivalent to....
+        p ∧ q ∧ r is equivalent to.... (p ∧ q) ∧ r
+        p ∨ q ∨ r is equivalent to.... (p ∨ q) ∨ r
 
 
     → evaluates right to left
-        p → q → r is equivalent to....
+        p → q → r is equivalent to....  p → (q → r)
 
 
 
@@ -244,7 +257,7 @@ Top-level operator (what happens LAST?)
 
 
 top-level? 
-
+OR in this case
 
 How is this similar to a circuit? 
 
@@ -255,21 +268,21 @@ How is this similar to a circuit?
 p ∧ q ∨ r ∧ p
 
 rewrite with ():
-
+(p ∧ q) ∨ (r ∧ p)
 
 top-level operator? 
 
-
+OR
 
 //////////////////////////////
 
 p ∧ q ∧ r ∧ s
 
 rewrite with ():
-
+((p ∧ q) ∧ r) ∧ s
 
 top-level operator?  
-
+AND s
 
 ////////////////////////////////////////////////////
 
@@ -283,19 +296,21 @@ parse trees
 
 --> what is the "top-level operator" here?
 
-
+AND
 
 
 --> draw one for p ∨ q ∧ r → ¬p → ¬q ∨ s
 
 
-
+first the left → is the top level cause it happens last
 
 
 --> expression trees
-
-
-
+            →
+                →
+              ¬   ∨
+              p  ¬ s
+                 q
 ////////////////////////////////////////////////////
 
 In-class practice quiz
@@ -337,21 +352,22 @@ Contingent, contradictory, tautology
 
 
 
-contingent: 
+contingent: some truth assignments make the output true 
+    and some truth assignments make the output false
 
     Example? 
 
+    p ∧ q
 
-
-contradictory:
-
-    Example? 
-
-
-tautology:
+contradictory: always false
 
     Example? 
-    
+    p ∧ ¬p
+
+tautology: always true
+
+    Example? 
+    p V ¬p
 
 ///////////////////////////////////////////
 
@@ -367,12 +383,22 @@ Write a truth table for:
 (p ∧ r) → (r ∨ ¬q)
 
 
+output of the statement = the top level operator
+
+                  *
 -----------------------------
 p q r  #  (p ∧ r) → (r ∨ ¬q)
 -----------------------------
+TTT #        T    T  T    F
+TTF #        F    T  F    F
+TFT #        T    T  T    T
+TFF #        F    T  T    T
+FTT #        F    T  T    F
+FTF #        F    T  F    F
+FFT #        F    T  T    T
+FFF #        F    T  T    T
 
-
-
+tautology
 
 --> top-level operator?
 
