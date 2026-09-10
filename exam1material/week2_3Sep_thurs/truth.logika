@@ -1,5 +1,6 @@
 
 //make truth table for (p | !q) ->: (p & q)
+<<<<<<< HEAD
 
 
 // on windows ctrl + shift + w
@@ -7,11 +8,24 @@
 -----------------------------
 p q # (p | !q) ->: (p & q)
 -----------------------------
+=======
+//to run Logika on Windows: Ctrl-Shift-W 
+//on Mac: Command-Shift-W 
+
+               *
+------------------------------
+p q # (p | !q) ->: (p & q)
+------------------------------
+>>>>>>> a029850de5ae7ac7db01badbf4e829dcd8adfbbf
 T T #    T F   T      T
 T F #    T T   F      F
 F T #    F F   T      F
 F F #    T T   F      F
+<<<<<<< HEAD
 -----------------------------
+=======
+-------------------------------
+>>>>>>> a029850de5ae7ac7db01badbf4e829dcd8adfbbf
 
 Contingent
 T: [T T] [F T]

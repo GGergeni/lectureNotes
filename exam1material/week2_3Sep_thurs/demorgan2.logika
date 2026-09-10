@@ -1,11 +1,22 @@
+<<<<<<< HEAD
           *
+=======
+         *
+>>>>>>> a029850de5ae7ac7db01badbf4e829dcd8adfbbf
 --------------
-p q # !(p | q)
+p q # !p & !q
 ---------------
+<<<<<<< HEAD
 T T # F
 T F # F
 F T # T
 F F # T
+=======
+T T # F  F F
+T F # F  F T
+F T # T  F F
+F F # T  T T
+>>>>>>> a029850de5ae7ac7db01badbf4e829dcd8adfbbf
 ---------------
 
 Contingent

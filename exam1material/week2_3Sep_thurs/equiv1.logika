@@ -2,7 +2,11 @@
 --------------
 p q # p ->: q
 ---------------
+<<<<<<< HEAD
 T T #   T 
+=======
+T T #   T
+>>>>>>> a029850de5ae7ac7db01badbf4e829dcd8adfbbf
 T F #   F
 F T #   T
 F F #   T
@@ -10,4 +14,8 @@ F F #   T
 
 Contingent
 T: [T T] [F T] [F F]
+<<<<<<< HEAD
 F: [T F]
+=======
+F: [T F]
+>>>>>>> a029850de5ae7ac7db01badbf4e829dcd8adfbbf

@@ -4,8 +4,16 @@
 ------------
 q # q ->: q
 ------------
+<<<<<<< HEAD
 T #   T  
 F #   T 
 ------------
 
 Tautology
+=======
+T #   T
+F #   T
+------------
+
+Tautology
+>>>>>>> a029850de5ae7ac7db01badbf4e829dcd8adfbbf
