@@ -11,12 +11,20 @@ import org.sireum.justification.natded.prop._
         (a) |- (b | a | c)
         Proof(
             //PROOF GOES HERE
+<<<<<<< HEAD
             1 ( a )     by Premise
             2 ( b | a ) by OrI2(1)
             3 ( b | a | c ) by OrI1(2)
 
 
             //want b | a | c
+=======
+            1 ( a )     by Premise,
+            2 ( b | a ) by OrI2(1),
+            3 ( b | a | c ) by OrI1(2)
+
+            //want: b | a | c
+>>>>>>> 108a64175c761c1625003f7d155f89809e475965
             //really (b | a) | c
             //need b | a on its own first
             //need to construct that OR last
