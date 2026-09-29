@@ -10,27 +10,7 @@ import org.sireum.justification.natded.prop._
       Proof(
       1 (  p __>: r   ) by Premise,
       2 (  q __>: r   ) by Premise,
-      3 SubProof(
-        4 Assume( p | q),
 
-        //use OrE on p | q to get r in both cases
-        5 SubProof(
-          6 Assume (p),
-          7 ( r ) by ImplyE(1, 6),
-          //goal r
-        ),
-
-        8 SubProof(
-          9 Assume (q),
-          10 (r) by ImplyE(2, 9),
-        ),
-        11 (r) by OrE(4, 5, 8),
-      ),
-      12 (p | q __>: r ) by ImplyI(3)
-
-      //use ImplyI to introduce goal implies
-
-      //goal is implies statement
     )
   )
 }
