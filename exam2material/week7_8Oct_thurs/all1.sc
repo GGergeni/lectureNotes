@@ -20,8 +20,13 @@ import org.sireum.justification.natded.prop._
     Proof(
       1 (  ∀((x: T) => (inCIS301(x) __>: takenCIS200(x)))  ) by Premise,
       2 (  inCIS301(Bob)                                ) by Premise,
+<<<<<<< HEAD
       3 (inCIS301(Bob) __>: takenCIS200(Bob)) by AllE[T](1),
       4 (takenCIS200(Bob)) by ImplyE(3, 2)
+=======
+      3 ( inCIS301(Bob) __>: takenCIS200(Bob) ) by AllE[T](1),
+      4 ( takenCIS200(Bob) ) by ImplyE(3, 2)
+>>>>>>> 423bcdd9e98cfe702a8ec10db9207a5a67614a6b
     )
   )
 }
