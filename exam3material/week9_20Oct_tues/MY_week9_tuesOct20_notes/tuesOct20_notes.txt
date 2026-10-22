@@ -43,14 +43,14 @@ Create an alias for that anonymous individual
     Know: ∃ x P(x)
     Assume? 
 
-    Goal ?
+    Goal ? reach a conclusion that doesnt rely on the name
 
 
 
 Example:
     Know: ∃ x (P(x) ^ Q(x) → R(x))
     Assume? 
-
+(P(x) ^ Q(x) → R(x))
 
 
 
@@ -90,7 +90,7 @@ Syntax:
 
 
 --> Think of ExistsE like OrE
-    ∃ x P(x) means...? 
+    ∃ x P(x) means...? (P(k(1)..))
 
 
 Use ExistsE in the SAME situations you would use OrE
@@ -131,21 +131,26 @@ Proof tactics for predicate logic
 - look at top-level operator for what you are trying to prove
     trying to prove a "for all" statement with ∀?
 
+use AllI subproof
 
 
     trying to prove a "there exists" statement with ∃?
 
         do I have that statement about a particular individual?
-
+            ExistsI
 
         could I use AllE for an individual with an all statement?
-
+            use AllE to make the statement about the individual
+            then use ExistsI
 
         do I have a "there exists" statement as a claim?
+            already exists (given)
+            try to prove exists (something)
 
+            try using ExistsE on the Exists you already have
 
         do I have an OR statement as a claim?
-
+            try OrE
 
         really can't find anything? 
             PbC
