@@ -1,0 +1,339 @@
+ HW 8 due Tuesday, November 3
+
+//////////////////////////
+
+Today:
+- direct proofs
+- contrapositive proofs
+- proof by contradiction
+- proofs on sets
+
+//////////////////////////
+
+Definitions.
+
+An integer n is *even* if n = 2k for some k ∈ ℤ.
+
+An integer n is *odd* if n = 2k + 1 for some k ∈ ℤ.
+
+Any integer that is not odd is even,
+and any integer that is not even is odd.
+
+
+///////////////////////////////
+
+Direct (conditional) proof
+
+
+- Often want to prove things of the form: "If P, then Q"
+
+--> how would we do this with natural deduction?
+
+
+
+
+
+/////////////////////////////
+
+Example: prove that the product of two even integers is even.
+
+
+If our domain is integers and we have the predicate Even(x), how
+would you write this statement in predicate logic?
+
+
+A x A y (Even(x) ^ Even(y) -> Even(xy))
+
+
+What's the idea of proving this in predicate logic?
+
+Let x and y be ints. Assume x and y are even. we must show hat xy is even
+Since x is even, we have that x = 2k for some integer k.
+since y is even, we have that y = 2m fr some integer m.
+
+We have that:
+    xy = (2k)(2m)
+        = 2(2km)
+
+Thus xy = 2b where b is the integer 2km. We have that xy is even
+
+...want xy to be even -- need 2(some integer)
+
+
+Direct proof:
+
+
+
+
+
+--> How is our proof similar to natural deduction?
+
+////////////////////////////////
+
+Example.
+
+The square of any odd integer is odd.
+
+
+
+
+
+Direct proof:
+
+Let x be an odd integer. We must show that x^2 is also odd.
+If x is an odd integer, the x = 2k + 1 for some integer k.
+
+We have:
+    x^2 = (2k + 1)^2
+        = (2k+1)(2k+1)
+        = 4k^2 + 4k + 1
+        = 2(2k^2 + 2k) + 1
+
+thus x^2 = 2b + 1 where b is the integer 2k^2 + 2k, and so x^2 is 
+
+////////////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////////////
+
+
+Proof by contrapositive
+
+--> Also for proving things of the form "If P, then Q"
+
+
+What is the contrapositive of P → Q?
+    ¬Q → ¬P
+
+
+
+
+
+Proof by contrapositive template:
+
+Assume ¬Q
+....
+try to get ¬P
+
+
+
+
+
+//////////////////////////////////////////
+
+Example (contrapositive)
+
+If x^2 is odd for an integer x, then x is odd.
+
+Think of as P → Q
+    P: ? ^2 is odd for an integer x
+    Q: ? then x is odd.
+
+Contrapositive? 
+    If x is even for some integer x, then its square is also even.
+
+
+
+
+Try direct proof first.
+    If x^2 is odd for an integer x, then x is odd.
+
+let x be an integer and assume that x^2 is odd. we must show
+that x is odd
+
+since x^2 is odd, then x^2 = 2k+1 for some integer k
+    x^2 = 2k+1
+    ... would need to take a sqrt, but dont knwo that sqrt(2k+1)
+
+... want x = 2(some integer) + 1
+
+
+
+Now try contrapositive proof.
+If x is even then x = 2k for some int k. 
+
+we have that 
+    x^2 = (2k)^2
+        = 4k^2
+        =2(2k^2)
+
+thus x^2 = 2b where b is the integer 2k^2. x^2 is even by definition
+
+
+
+
+
+--> best to indicate in proof that you are using contrapositive
+
+////////////////////////////////
+
+Mistakes in proofs.
+
+We want to "prove" that 1 = 2.
+
+
+"Proof:"
+Let a and b be two equal positive integers. We have that:
+
+    1) a = b                    (reason?) we assumed they are equal
+
+    2) a^2 = ab                 (reason?) multiplied both sides by a
+
+    3) a^2 - b^2 = ab - b^2     (reason?) subtracted b^2 from both sides
+
+    4) (a-b)(a+b) = b(a-b)      (reason?) factored both sides  --- this is the step where it goes bad
+
+    5) a+b = b                  (reason?) divided both sides by a-b
+
+    6) 2b = b                   (reason?) a and b are the same, so plugged in b for a 
+
+    7) 2 = 1                    (reason?)  divided both sides by b
+
+
+
+//////////////////////////////////////
+
+Proof by contradiction.
+
+- same idea as PbC in natural deduction
+
+- assume that what you are trying to prove is not true
+
+- try to get a contradiction
+
+- conclude what you are trying to prove is true after all
+
+
+
+
+/////////////////////////
+
+Proof by contradiction template 1 (trying to prove P)
+
+
+Suppose, for the sake of contradiction, ¬P.
+...
+C ^ ¬C.
+
+We have a contradiction between C and ¬C, so P must hold.
+
+
+
+
+
+//////////////////////////
+
+Proof by contradiction template 2 (trying to prove If P, then Q):
+
+
+Assume P.
+Suppose, for the sake of contradiction, ¬Q.
+...
+C ^ ¬C.
+We have a contradiction between C and ¬C, so Q must hold.
+
+
+
+
+
+///////////////////////////
+
+Example (use proof by contradiction):
+
+If x^2 is even for an integer x, then x is even.
+
+(which template? )  
+
+
+
+
+//////////////////////////
+
+(in-class quiz)
+
+//////////////////////////
+
+Definitions: "rational" / "irrational"
+
+A number r is *rational* if r = p/q for some integers p and q,
+where q ≠ 0.
+
+
+
+Any number that is not rational is irrational,
+and any number that is not irrational is rational.
+
+//////////////////////////
+
+Example: use proof by contradiction to prove that sqrt(2)
+is irrational.
+
+(which template?  )  1 [just a statement]
+
+suppoe, for the sake of contradiction, that sqrt(2) is rational. 
+Since sqrt(2) is rational, we can write sqrt(2) = p/q where 
+p and q are integers and q is not 0. We choose p and q 
+to have no common factors, such that p/q is fully reduced
+
+Squaring both sides of sqrt(2) = p/q we have that:
+    2 = p^2/q^2
+
+Multiplying both sides by q^2, we have that:
+    2q^2 = p^2
+
+Thus p^2 = 2b where b is the integer q^2, and so p^2 is even by defenition 
+
+
+/////////////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+/////////////////////////////////
+
+Proofs with sets.
+
+Prove that A ⊆ B?
+    --> how would we express this in predicate logic?
+
+
+
+    --> proof template? 
+
+
+
+
+
+
+Prove that A = B?
+
+
+///////////////////////////////
+
+Example.
+
+Prove that {x : x = 4k + 2, k ∈ ℤ} ⊆ {x : x = 2a, a ∈ ℤ}
+
+A = {x : x = 4k + 2, k ∈ ℤ} 
+B = {x : x = 2a, a ∈ ℤ} 
+
+A: what elements?  
+
+
+B: what elements? 
+
+
+Proof that A ⊆ B.
+
+
+
+
+
+///////////////////////////////
+
+What if we wanted to prove something like:
+
+A ⋂ B = C?
+
+///////////////////////////////
+
+Next time: begin programming logic
+    (last major unit)
